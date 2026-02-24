@@ -9,10 +9,7 @@ from langgraph.graph.message import add_messages
 from langchain_core.messages import HumanMessage, SystemMessage, BaseMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
 from langchain_community.tools.tavily_search import TavilySearchResults
-from dotenv import load_dotenv
-
-load_dotenv()
-
+from src.backend.config import settings
 
 # --- Agent Configuration ---
 class AgentConfig(TypedDict):
@@ -41,13 +38,15 @@ llm = ChatGoogleGenerativeAI(
     model=LLM_MODEL,
     temperature=0.2,
     max_retries=2,
+    google_api_key=settings.GEMINI_API_KEY,
 )
 
 tavily_tool = TavilySearchResults(
     max_results=3,
     search_depth="advanced",
     include_answer=True,
-    include_raw_content=True
+    include_raw_content=True,
+    tavily_api_key=settings.TAVILY_API_KEY
 )
 
 

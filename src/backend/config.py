@@ -25,6 +25,10 @@ class Settings(BaseSettings):
     # News API
     NEWS_API_KEY: str = ""
 
+    # AI Agent Keys
+    GEMINI_API_KEY: str = ""
+    TAVILY_API_KEY: str = ""
+
     # Polymarket API (Optional, for CLOB access)
     POLYMARKET_API_KEY: str = ""
     POLYMARKET_SECRET: str = ""

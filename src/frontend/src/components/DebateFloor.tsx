@@ -89,7 +89,7 @@ const DebateFloor: React.FC<DebateFloorProps> = ({ marketId }) => {
         top_traders_analyst: true,
     });
 
-    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || 'http://localhost:8000';
+    const API_BASE_URL = import.meta.env.VITE_API_BASE_URL || '';
 
     const toggleAgent = (agentKey: keyof AgentConfig) => {
         setAgentConfig(prev => ({
@@ -261,11 +261,11 @@ const DebateFloor: React.FC<DebateFloorProps> = ({ marketId }) => {
                                     ? 'bg-green-900/20 border-green-500/30 ml-4 mr-8'
                                     : msg.agent === 'Top Traders Analyst'
                                         ? 'bg-orange-900/20 border-orange-500/30 ml-6 mr-6'
-                                    : msg.agent === "Devil's Advocate"
-                                        ? 'bg-red-900/20 border-red-500/30 ml-8 mr-4'
-                                        : msg.agent === 'Crypto/Macro Analyst'
-                                            ? 'bg-yellow-900/20 border-yellow-500/30 ml-12 mr-0'
-                                            : 'bg-gray-800/40 border-gray-600/30 mx-6'
+                                        : msg.agent === "Devil's Advocate"
+                                            ? 'bg-red-900/20 border-red-500/30 ml-8 mr-4'
+                                            : msg.agent === 'Crypto/Macro Analyst'
+                                                ? 'bg-yellow-900/20 border-yellow-500/30 ml-12 mr-0'
+                                                : 'bg-gray-800/40 border-gray-600/30 mx-6'
                             }`}
                         style={{ animationDelay: `${idx * 0.1}s` }}
                     >
@@ -283,9 +283,9 @@ const DebateFloor: React.FC<DebateFloorProps> = ({ marketId }) => {
                                 msg.agent === 'Time Decay Analyst' ? 'text-cyan-400' :
                                     msg.agent === 'Generalist Expert' ? 'text-green-400' :
                                         msg.agent === 'Top Traders Analyst' ? 'text-orange-400' :
-                                        msg.agent === "Devil's Advocate" ? 'text-red-400' :
-                                            msg.agent === 'Crypto/Macro Analyst' ? 'text-yellow-400' :
-                                                'text-purple-400'
+                                            msg.agent === "Devil's Advocate" ? 'text-red-400' :
+                                                msg.agent === 'Crypto/Macro Analyst' ? 'text-yellow-400' :
+                                                    'text-purple-400'
                                 }`}>
                                 {msg.agent}
                             </span>
