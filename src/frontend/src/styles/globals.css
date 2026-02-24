@@ -1,0 +1,141 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles */
+@import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@400;600;700&display=swap');
+
+:root {
+  font-family: 'Inter', system-ui, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: dark;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: #000;
+  background-image: 
+    linear-gradient(rgba(34, 197, 94, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 197, 94, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #000;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(34, 197, 94, 0.3);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(34, 197, 94, 0.5);
+}
+
+/* Symoria Specific Utilities */
+@layer utilities {
+  .font-digital {
+    font-family: 'JetBrains Mono', monospace;
+  }
+
+  .glass {
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(34, 197, 94, 0.15);
+  }
+  
+  .glass-card {
+    background: linear-gradient(
+      135deg,
+      rgba(10, 10, 10, 0.8) 0%,
+      rgba(0, 0, 0, 0.9) 100%
+    );
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(34, 197, 94, 0.12);
+    box-shadow: 
+      0 0 20px -5px rgba(34, 197, 94, 0.05),
+      inset 0 1px 0 0 rgba(255, 255, 255, 0.02);
+  }
+  
+  .gradient-accent {
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+  }
+  
+  .text-gradient {
+    background: linear-gradient(135deg, #4ade80 0%, #22c55e 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-green {
+    box-shadow: 0 0 15px -1px rgba(34, 197, 94, 0.4);
+  }
+
+  .glow-text-green {
+    text-shadow: 0 0 8px rgba(34, 197, 94, 0.6);
+  }
+}
+
+/* Card hover effect */
+.market-card {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.market-card:hover {
+  transform: scale(1.01);
+  border-color: rgba(34, 197, 94, 0.4);
+  box-shadow: 0 0 20px -5px rgba(34, 197, 94, 0.2);
+}
+
+.market-card.selected {
+  background: linear-gradient(
+    135deg,
+    rgba(34, 197, 94, 0.1) 0%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+  border-color: rgba(34, 197, 94, 0.5);
+  box-shadow: 0 0 30px -10px rgba(34, 197, 94, 0.3);
+}
+
+/* Loading animation */
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    rgba(34, 197, 94, 0.05) 25%,
+    rgba(34, 197, 94, 0.15) 50%,
+    rgba(34, 197, 94, 0.05) 75%
+  );
+  background-size: 200% 100%;
+  animation: skeleton-loading 1.5s infinite;
+}
+
+@keyframes skeleton-loading {
+  0% { background-position: 200% 0; }
+  100% { background-position: -200% 0; }
+}
+
+/* Energy Wave Effect */
+.energy-wave {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200vw;
+  height: 200vh;
+  background: radial-gradient(circle, rgba(34, 197, 94, 0.03) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: -1;
+}
